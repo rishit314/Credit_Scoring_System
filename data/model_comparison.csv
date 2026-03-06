@@ -1,0 +1,5 @@
+model,roc_auc,pr_auc,ks,gini
+Logistic Regression,0.8372,0.3382,0.5248,0.6743
+XGBoost,0.837,0.3475,0.5226,0.674
+XGBoost Optimised,0.7956,0.2882,0.4506,0.5913
+XGBoost v2 (scale_pos_weight),0.8618,0.405,0.5727,0.7236
