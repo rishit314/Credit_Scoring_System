@@ -249,11 +249,6 @@ SHAP values are mathematically grounded in cooperative game theory (Shapley valu
 **Why FastAPI over Flask?**
 Automatic input validation via Pydantic, automatic OpenAPI documentation at `/docs`, native async support, and significantly better performance. The interactive docs page alone makes demos substantially easier.
 
----
-
-## 📄 Resume Bullet
-
-> Built end-to-end credit default prediction pipeline (XGBoost + SHAP) on 120k loan applications; achieved 0.862 ROC-AUC by diagnosing SMOTE data leakage and switching to native scale_pos_weight; deployed explainability layer generating ECOA-compliant plain-English adverse action reasons via FastAPI + Streamlit.
 
 ---
 
