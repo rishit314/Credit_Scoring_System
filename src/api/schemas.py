@@ -142,3 +142,30 @@ class ModelInfoResponse(BaseModel):
     feature_count: int
     default_threshold: float
     version: str
+
+
+class AgentPredictionResponse(PredictionResponse):
+    """
+    Extends PredictionResponse with an LLM-narrated applicant message and
+    (for REVIEW decisions) an underwriter checklist.
+
+    IMPORTANT: decision / default_probability / risk_score / top_reasons /
+    shap_impacts are unchanged from the deterministic model — the LLM layer
+    only adds `applicant_message` and `underwriter_checklist` on top. It can
+    never alter the fields above.
+    """
+    applicant_message: str = Field(
+        description="LLM-narrated, applicant-facing version of the decision"
+    )
+    underwriter_checklist: list[str] = Field(
+        description="Items for a human underwriter to verify (only populated for REVIEW)"
+    )
+    narrative_source: str = Field(
+        description="'llm' if the Groq call passed guardrails, 'template_fallback' otherwise"
+    )
+    guardrail_status: str = Field(
+        description="'passed' or the reason the LLM output was rejected and a fallback used"
+    )
+    audit_id: str = Field(
+        description="ID of the audit log record for this narration, for compliance traceability"
+    )

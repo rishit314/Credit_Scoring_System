@@ -1,0 +1,14 @@
+# Lean requirements for deploying just the API (not the notebooks/EDA env).
+# Pin versions matching what the model was trained/tested with.
+
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+pydantic==2.13.5
+joblib==1.5.3
+numpy==2.4.2
+pandas==2.3.3
+scikit-learn==1.8.0
+xgboost==3.4.1
+shap==0.52.0
+groq==1.7.0
+python-dotenv==1.2.2

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: credit-scoring-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false          # set manually in Render dashboard — never commit this
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: AUDIT_LOG_PATH
+        value: /app/audit_log.jsonl
+    healthCheckPath: /health
